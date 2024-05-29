@@ -13,8 +13,8 @@ class Firectl < Formula
     end
   
     def install
-      system "sudo", "mv", "firectl", "/usr/local/bin/firectl"
-      system "chown", "root:", "/usr/local/bin/firectl"
+      system "sudo mv firectl /usr/local/bin/firectl"
+      system "chown root: /usr/local/bin/firectl"
     end
 
     test do
