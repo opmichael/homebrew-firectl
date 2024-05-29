@@ -13,7 +13,12 @@ class Firectl < Formula
     end
   
     def install
-      bin.install "firectl" => "firectl"
+      system "sudo", "mv", "firectl", "/usr/local/bin/firectl"
+      system "chown", "root:", "/usr/local/bin/firectl"
+    end
+
+    test do
+        system "firectl", "version"
     end
   end
   
