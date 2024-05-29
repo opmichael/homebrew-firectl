@@ -2,7 +2,10 @@
 
 ## How do I install these formulae?
 
-`brew tap fw-ai/firectl` and then `brew install <formula>`.
+```bash
+brew tap fw-ai/firectl
+brew install firectl
+```
 
 Or, in a [`brew bundle`](https://github.com/Homebrew/homebrew-bundle) `Brewfile`:
 
