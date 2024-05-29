@@ -13,7 +13,7 @@ class Firectl < Formula
     end
   
     def install
-      bin.install "repo" => "repo"
+      bin.install "firectl" => "firectl"
     end
   end
   
