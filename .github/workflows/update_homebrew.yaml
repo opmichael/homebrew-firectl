@@ -1,0 +1,30 @@
+name: Update Homebrew Formula
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  update-formula:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Update formula
+      run: |
+        SHA256_LINUX=$(curl -L https://storage.googleapis.com/fireworks-public/firectl/stable/linux-amd64.gz | sha256sum | cut -d' ' -f1)
+        SHA256_DARWIN_AMD64=$(curl -L https://storage.googleapis.com/fireworks-public/firectl/stable/darwin-amd64.gz | sha256sum | cut -d' ' -f1)
+        SHA256_DARWIN_ARM64=$(curl -L https://storage.googleapis.com/fireworks-public/firectl/stable/darwin-arm64.gz | sha256sum | cut -d' ' -f1)
+        # Replace sha256 variables in the formula
+        sed -i "s|sha256 \".*\" # Linux|sha256 \"$SHA256_LINUX\" # Linux|" Formula/firectl.rb
+        sed -i "s|sha256 \".*\" # Darwin AMD64|sha256 \"$SHA256_DARWIN_AMD64\" # Darwin AMD64|" Formula/firectl.rb
+        sed -i "s|sha256 \".*\" # Darwin ARM64|sha256 \"$SHA256_DARWIN_ARM64\" # Darwin ARM64|" Formula/firectl.rb
+
+    - name: Commit changes
+      run: |
+        git config --local user.email "github-actions@fireworks.ai"
+        git config --local user.name "GitHub Actions Bot"
+        git add Formula/firectl.rb
+        git commit -m "Update Formula for ${{ github.GITHUB_REF }}"
+        git push

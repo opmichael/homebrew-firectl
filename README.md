@@ -2,14 +2,12 @@
 
 ## How do I install these formulae?
 
-`brew install fireworks/firectl/<formula>`
-
-Or `brew tap fireworks/firectl` and then `brew install <formula>`.
+`brew tap fw-ai/firectl` and then `brew install <formula>`.
 
 Or, in a [`brew bundle`](https://github.com/Homebrew/homebrew-bundle) `Brewfile`:
 
 ```ruby
-tap "fireworks/firectl"
+tap "fw-ai/firectl"
 brew "<formula>"
 ```
 
