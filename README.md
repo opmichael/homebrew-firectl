@@ -2,11 +2,10 @@
 
 ## How do I install these formulae?
 
-Firectl must be installed with root permissions.
 
 ```bash
 brew tap fw-ai/firectl
-sudo brew install firectl
+brew install firectl
 ```
 
 Or, in a [`brew bundle`](https://github.com/Homebrew/homebrew-bundle) `Brewfile`:

@@ -25,10 +25,8 @@ class Firectl < Formula
 
       if OS.mac?
         system "chmod", "a+x", "#{bin}/firectl"
-        system "chown", "root:", "#{bin}/firectl"
       elsif OS.linux?
-        system "sudo", "chmod", "0755", "#{bin}/firectl"
-        system "sudo", "chown", "root:", "#{bin}/firectl"
+        system "chmod", "0755", "#{bin}/firectl"
       end
     end
   
