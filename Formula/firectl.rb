@@ -31,9 +31,10 @@ class Firectl < Formula
         system "sudo", "chown", "root", "#{bin}/firectl"
         system "sudo", "chgrp", "root", "#{bin}/firectl" 
     end
-
+  
     test do
-        system "firectl", "version"
+      assert_match "firectl version", shell_output("#{bin}/firectl --version")
     end
+  
   end
   
