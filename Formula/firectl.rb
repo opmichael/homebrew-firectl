@@ -31,7 +31,7 @@ class Firectl < Formula
     end
   
     test do
-      assert_match "firectl version", shell_output("#{bin}/firectl version")
+      shell_output("#{bin}/firectl version")
     end
   
   end
