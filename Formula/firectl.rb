@@ -13,8 +13,24 @@ class Firectl < Formula
     end
   
     def install
-      system "sudo mv firectl /usr/local/bin/firectl"
-      system "chown root: /usr/local/bin/firectl"
+      bin.mkpath
+
+      gz_file = "#{cached_download}"
+
+      File.open("#{bin}/firectl","wb") do |file|
+        Zlib::GzipReader.open(gz_file) do |gz|
+          file.write(gz.read)
+        end
+      end
+
+      if OS.mac?
+        system "chmod", "a+x", "#{bin}/firectl"
+        system "sudo", "chown", "root: #{bin}/firectl"
+      elsif OS.linux?
+        system "sudo", "chmod", "0755", "#{bin}/firectl"
+        system "sudo", "chown", "root:", "#{bin}/firectl"
+        system "sudo", "chgrp", "root", "#{bin}/firectl" 
+      end
     end
 
     test do
