@@ -1,8 +1,8 @@
 name: Update Homebrew Formula
 
 on:
-  release:
-    types: [published]
+  repository_dispatch:
+    types: [trigger-workflow-event]
 
 jobs:
   update-formula:
