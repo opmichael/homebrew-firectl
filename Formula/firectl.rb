@@ -9,7 +9,7 @@ class Firectl < Formula
       sha256 "e6d8541a496e0b3ec5de069a4b5ee2ac71e91301822c665bd078ecbea5b5870e" # Darwin AMD64
     elsif OS.mac? && Hardware::CPU.arm?
       url "https://storage.googleapis.com/fireworks-public/firectl/stable/darwin-arm64.gz"
-      sha256 "c2b6a5a7f1716c8c8b1bc6da5df8f60f94524b6f0b575d7768f50fc1ed91471f" # Darwin ARM64
+      sha256 "b0af871513ae879055459b3f2b047fcb54ebeed0688589621d90ed5973a45b38" # Darwin ARM64
     end
   
     def install
